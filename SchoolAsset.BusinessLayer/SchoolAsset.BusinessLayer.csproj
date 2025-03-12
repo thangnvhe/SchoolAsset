@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolAsset.DataLayer\SchoolAsset.DataLayer.csproj" />
+  </ItemGroup>
+
 </Project>

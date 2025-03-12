@@ -14,30 +14,40 @@ obj/
 # Ignore NuGet packages
 *.nupkg
 packages/
-
-# Ignore user secrets (for security)
-secrets.json
-
-# Ignore Rider IDE files
-.idea/
-*.sln.iml
-
-# Ignore .NET Core specific files
 project.lock.json
 project.fragment.lock.json
 artifacts/
 
+# Ignore user secrets (for security)
+secrets.json
+appsettings.Development.json
+
+# Ignore Rider IDE files (JetBrains Rider)
+.idea/
+*.sln.iml
+
+# Ignore ReSharper files
+*_Resharper.*
+*.DotSettings.user
+
 # Ignore publish output
-wwwroot/
+wwwroot/**/bundle.*
+wwwroot/**/dist/
+wwwroot/**/node_modules/
 node_modules/
 
-# Ignore Docker related files
-docker-compose.override.yml
-
 # Ignore logs and temp files
-*.log
 logs/
 temp/
+*.log
 
 # Ignore dependencies and libraries
 lib/
+
+# Ignore Docker related files
+docker-compose.override.yml
+docker-compose.yml
+
+# Ignore database files (if using local DB)
+*.mdf
+*.ldf
