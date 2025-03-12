@@ -1,0 +1,43 @@
+# Ignore Visual Studio specific files
+.vs/
+*.user
+*.suo
+*.cache
+*.csproj.user
+*.dotCover
+*.log
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+
+# Ignore user secrets (for security)
+secrets.json
+
+# Ignore Rider IDE files
+.idea/
+*.sln.iml
+
+# Ignore .NET Core specific files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore publish output
+wwwroot/
+node_modules/
+
+# Ignore Docker related files
+docker-compose.override.yml
+
+# Ignore logs and temp files
+*.log
+logs/
+temp/
+
+# Ignore dependencies and libraries
+lib/
