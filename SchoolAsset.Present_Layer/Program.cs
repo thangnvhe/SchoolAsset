@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using SchoolAsset.BusinessLayer.Services;
+using SchoolAsset.DataLayer;
 using SchoolAsset.DataLayer.Data;
 using SchoolAsset.DataLayer.IRepository;
 using SchoolAsset.DataLayer.Models;
@@ -14,9 +16,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<SchoolAssetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolAsset")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<SchoolAssetDbContext>();
+builder.Services.AddIdentity<IdentityUser,IdentityRole>(). AddEntityFrameworkStores<SchoolAssetDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddScoped<BuildingService>();
 var app = builder.Build();
 
