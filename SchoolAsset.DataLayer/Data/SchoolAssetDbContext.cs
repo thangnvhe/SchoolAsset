@@ -1,25 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SchoolAsset.DataLayer.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolAsset.DataLayer.Data
 {
-    public class SchoolAssetDbContext : DbContext
+    public class SchoolAssetDbContext : IdentityDbContext<IdentityUser>
     {
-        public SchoolAssetDbContext()
-        {
-            
-        }
         public SchoolAssetDbContext(DbContextOptions<SchoolAssetDbContext> options) : base(options)
         {
 
         }
 
         public DbSet<Building> Buildings { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolAsset.DataLayer.Data;
 using SchoolAsset.DataLayer.IRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolAsset.DataLayer.Repository
 {

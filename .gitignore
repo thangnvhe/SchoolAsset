@@ -32,7 +32,6 @@ appsettings.Development.json
 
 # Ignore publish output
 wwwroot/**/bundle.*
-wwwroot/**/dist/
 wwwroot/**/node_modules/
 node_modules/
 
@@ -40,9 +39,6 @@ node_modules/
 logs/
 temp/
 *.log
-
-# Ignore dependencies and libraries
-lib/
 
 # Ignore Docker related files
 docker-compose.override.yml
