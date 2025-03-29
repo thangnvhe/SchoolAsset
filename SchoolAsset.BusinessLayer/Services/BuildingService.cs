@@ -20,7 +20,7 @@ namespace SchoolAsset.BusinessLayer.Services
 
         public async Task<Building?> GetBuildingById(int id)
         {
-            return await _unitOfWork.Buildings.GetByIdAsync(id);
+            return await _unitOfWork.Buildings.GetByIdAsync(b => b.BuildingId == id);
         }
 
         public async Task<bool> AddBuilding(BuildingDTO buildingDTO)
@@ -39,7 +39,7 @@ namespace SchoolAsset.BusinessLayer.Services
 
         public async Task<bool> UpdateBuilding(int id, BuildingDTO buildingDTO)
         {
-            var building = _unitOfWork.Buildings.GetByIdAsync(id).Result;
+            var building = _unitOfWork.Buildings.GetByIdAsync(b => b.BuildingId == id).Result;
             if (building == null)
             {
                 return false;
@@ -47,19 +47,18 @@ namespace SchoolAsset.BusinessLayer.Services
             building.BuildingName = buildingDTO.BuildingName;
             building.Location = buildingDTO.Location;
             building.Status = buildingDTO.Status;
-            _unitOfWork.Buildings.Update(building);
             int result = await _unitOfWork.CompleteAsync();
             return result > 0;
         }
 
         public async Task<bool> DeleteBuilding(int id)
         {
-            var building = await _unitOfWork.Buildings.GetByIdAsync(id);
+            var building = await _unitOfWork.Buildings.GetByIdAsync(b => b.BuildingId == id);
             if (building == null)
             {
                 return false;
             }
-            _unitOfWork.Buildings.Delete(building);
+            _unitOfWork.Buildings.Remove(building);
             int result = await _unitOfWork.CompleteAsync();
             return result > 0;
         }

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SchoolAsset.Present_Layer.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
@@ -22,13 +24,7 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link text-light" style="font-weight:bold" asp-area="Customer" asp-controller="Home" asp-action="Index">Trang Chủ</a>
-                        </li>
-                        @if (User.IsInRole(SD.Role_Admin))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="font-weight:bold" asp-area="Admin" asp-controller="Building" asp-action="Index">Building</a>
-                            </li>
-                        }
+                        </li>                    
                         <li class="nav-item">
                             <a class="nav-link text-light" style="font-weight:bold" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Tin tức và Sự kiện</a>
                         </li>
@@ -41,6 +37,33 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" style="font-weight:bold" asp-area="Customer" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                         </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" style="font-weight:bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Content Managment
+                                </a>
+                                <ul class="dropdown-menu" style="background-color:mediumorchid">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-light" style="font-weight:bold" asp-area="Admin" asp-controller="Building" asp-action="Index">Building</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-light" style="font-weight:bold" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-light" style="font-weight:bold" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-light" style="font-weight:bold" asp-area="Identity" asp-page="/Account/Register">Create User</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-light" style="font-weight:bold" asp-area="Admin" asp-controller="User" asp-action="Index">Manage User</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial"/>
                 </div>
@@ -55,6 +78,11 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.tiny.cloud/1/g28lhnxtlihu4l4a381gw7tz47voznshwbi10lmsvlekrfme/tinymce/6/tinymce.min.js" referrerpolicy="origin">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

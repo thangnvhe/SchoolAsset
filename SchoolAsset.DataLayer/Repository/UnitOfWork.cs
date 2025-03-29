@@ -8,10 +8,12 @@ namespace SchoolAsset.DataLayer.Repository
     {
         private readonly SchoolAssetDbContext _context;
         public IGenericRepository<Building> Buildings { get; }
+        public IApplicationUserRepository ApplicationUsers { get; }
         public UnitOfWork(SchoolAssetDbContext context)
         {
             _context = context;
             Buildings = new GenericRepository<Building>(_context);
+            ApplicationUsers = new ApplicationUserRepository(_context);
         }
 
         public async Task<int> CompleteAsync()
