@@ -7,12 +7,12 @@ namespace SchoolAsset.DataLayer.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly SchoolAssetDbContext _context;
-        public IGenericRepository<Building> Buildings { get; }
+        public IBuildingRepository Buildings { get; }
         public IApplicationUserRepository ApplicationUsers { get; }
         public UnitOfWork(SchoolAssetDbContext context)
         {
             _context = context;
-            Buildings = new GenericRepository<Building>(_context);
+            Buildings = new BuildingRepository(_context);
             ApplicationUsers = new ApplicationUserRepository(_context);
         }
 

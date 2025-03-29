@@ -2,12 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using SchoolAsset.BusinessLayer.Services;
 using SchoolAsset.DataLayer;
 using SchoolAsset.DataLayer.Data;
 using SchoolAsset.DataLayer.DbIntialier;
 using SchoolAsset.DataLayer.IRepository;
-using SchoolAsset.DataLayer.Models;
 using SchoolAsset.DataLayer.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +27,6 @@ builder.Services.ConfigureApplicationCookie(options => {
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
-builder.Services.AddScoped<BuildingService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -10,5 +10,7 @@ namespace SchoolAsset.BusinessLayer.ViewModels
         public string? Location { get; set; }
         [Required, MaxLength(100)]
         public string? Status { get; set; }
+
+        public DateTime BuildingDate { get; set; } = DateTime.Now;
     }
 }
