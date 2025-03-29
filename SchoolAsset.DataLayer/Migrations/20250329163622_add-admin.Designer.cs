@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolAsset.DataLayer.Data;
 
@@ -11,9 +12,11 @@ using SchoolAsset.DataLayer.Data;
 namespace SchoolAsset.DataLayer.Migrations
 {
     [DbContext(typeof(SchoolAssetDbContext))]
-    partial class SchoolAssetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250329163622_add-admin")]
+    partial class addadmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

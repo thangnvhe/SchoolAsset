@@ -1,3 +1,4 @@
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ builder.Services.ConfigureApplicationCookie(options => {
     options.LoginPath = $"/Identity/Account/Login";
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(2); // Đăng xuất sau 2 phút không hoạt động
+    options.SlidingExpiration = false; // Không reset lại thời gian nếu có hoạt động
 });
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -41,9 +44,23 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+// Middleware kiểm tra session hết hạn và logout
+app.Use(async (context, next) =>
+{
+    if (context.User.Identity.IsAuthenticated && !context.Request.Path.StartsWithSegments("/Identity/Account/Logout"))
+    {
+        var authResult = await context.AuthenticateAsync();
+        if (authResult?.None ?? true)
+        {
+            context.Response.Redirect("/Identity/Account/Logout");
+            return;
+        }
+    }
+    await next();
+});
 app.UseAuthentication();
 app.UseAuthorization();
-
+SeedDatabase();
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
