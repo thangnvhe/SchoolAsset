@@ -16,6 +16,10 @@ namespace SchoolAsset.DataLayer.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Asset> Assets { get; set; }
+        public DbSet<Maintenance> Maintenances { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
