@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SchoolAsset.BusinessLayer.Services;
 using SchoolAsset.DataLayer;
 using SchoolAsset.DataLayer.Data;
+using SchoolAsset.DataLayer.DbIntialier;
 using SchoolAsset.DataLayer.IRepository;
 using SchoolAsset.DataLayer.Models;
 using SchoolAsset.DataLayer.Repository;
@@ -22,6 +23,7 @@ builder.Services.ConfigureApplicationCookie(options => {
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddScoped<BuildingService>();
@@ -47,3 +49,12 @@ app.MapControllerRoute(
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 app.Run();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
