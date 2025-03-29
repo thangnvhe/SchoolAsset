@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolAsset.BusinessLayer.Services;
 using SchoolAsset.BusinessLayer.ViewModels;
+using SchoolAsset.DataLayer;
 
 namespace SchoolAsset.PresentLayer.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class BuildingController : Controller
     {
         private readonly BuildingService _buildingService;

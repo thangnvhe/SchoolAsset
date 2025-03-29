@@ -1,6 +1,96 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Tin Tức & Sự Kiện";
+    var newsList = new[]
+    {
+        new
+        {
+            Title = "Lễ Khai Giảng Năm Học Mới 2023-2024",
+            ShortDescription = "Trường THPT XYZ long trọng tổ chức lễ khai giảng năm học 2023-2024 với nhiều hoạt động ý nghĩa...",
+            ImageUrl = "https://img.freepik.com/free-photo/students-celebrating-first-day-school_23-2148419747.jpg?w=2000",
+            DetailsUrl = "/news/details/1"
+        },
+        new
+        {
+            Title = "Hội Thi Văn Nghệ Chào Mừng Ngày Nhà Giáo Việt Nam",
+            ShortDescription = "Học sinh toàn trường tham gia hội thi văn nghệ với nhiều tiết mục đặc sắc, tri ân thầy cô...",
+            ImageUrl = "https://img.freepik.com/free-photo/group-students-performing-stage-school_23-2148206261.jpg?w=2000",
+            DetailsUrl = "/news/details/2"
+        },
+        new
+        {
+            Title = "Giải Bóng Đá Nam Học Sinh THPT XYZ",
+            ShortDescription = "Đội tuyển bóng đá nam của trường đã xuất sắc giành chức vô địch giải đấu cấp thành phố...",
+            ImageUrl = "https://img.freepik.com/free-photo/students-playing-basketball-school-court_23-2148206258.jpg?w=2000",
+            DetailsUrl = "/news/details/3"
+        },
+        new
+        {
+            Title = "Cuộc Thi Sáng Tạo Khoa Học Kỹ Thuật Cấp Trường",
+            ShortDescription = "Học sinh THPT XYZ thể hiện tài năng sáng tạo qua các dự án khoa học độc đáo...",
+            ImageUrl = "https://img.freepik.com/free-photo/group-students-working-together-chemistry-class_1150-15256.jpg?w=2000",
+            DetailsUrl = "/news/details/4"
+        },
+        new
+        {
+            Title = "Ngày Hội Đọc Sách - Lan Tỏa Văn Hóa Đọc",
+            ShortDescription = "Trường THPT XYZ tổ chức ngày hội đọc sách với nhiều hoạt động thú vị, khuyến khích tình yêu sách...",
+            ImageUrl = "https://img.freepik.com/free-photo/students-studying-together-library-university_1150-15254.jpg?w=2000",
+            DetailsUrl = "/news/details/5"
+        },
+        new
+        {
+            Title = "Chương Trình Giao Lưu Văn Hóa Với Trường Bạn",
+            ShortDescription = "Học sinh THPT XYZ có cơ hội giao lưu, học hỏi văn hóa từ trường bạn quốc tế...",
+            ImageUrl = "https://img.freepik.com/free-photo/group-students-having-fun-together-campus_1150-15252.jpg?w=2000",
+            DetailsUrl = "/news/details/6"
+        },
+        new
+        {
+            Title = "Tổ Chức Lớp Học Kỹ Năng Mềm Cho Học Sinh",
+            ShortDescription = "Trường THPT XYZ chú trọng phát triển kỹ năng mềm cho học sinh thông qua các lớp học chuyên đề...",
+            ImageUrl = "https://img.freepik.com/free-photo/students-working-together-classroom-during-class_1150-15255.jpg?w=2000",
+            DetailsUrl = "/news/details/7"
+        },
+        new
+        {
+            Title = "Hoạt Động Tình Nguyện Hè - Chung Tay Vì Cộng Đồng",
+            ShortDescription = "Học sinh THPT XYZ tích cực tham gia các hoạt động tình nguyện, góp phần xây dựng cộng đồng...",
+            ImageUrl = "https://img.freepik.com/free-photo/group-volunteers-collecting-garbage-forest_52683-38910.jpg?w=2000",
+            DetailsUrl = "/news/details/8"
+        },
+        new
+        {
+            Title = "Tổ Chức Thi Olympic Các Môn Văn Hóa Cấp Trường",
+            ShortDescription = "Trường THPT XYZ tạo điều kiện cho học sinh thể hiện tài năng qua các kỳ thi Olympic các môn học...",
+            ImageUrl = "https://img.freepik.com/free-photo/group-volunteers-collecting-garbage-forest_52683-38910.jpg?w=2000",
+            DetailsUrl = "/news/details/9"
+        },
+        new
+        {
+            Title = "Lễ Tốt Nghiệp Và Tri Ân Thầy Cô Niên Khóa 2020-2023",
+            ShortDescription = "Trường THPT XYZ tổ chức lễ tốt nghiệp và tri ân thầy cô cho học sinh niên khóa 2020-2023...",
+            ImageUrl = "https://img.freepik.com/free-photo/students-wearing-graduation-gowns_23-2148419750.jpg?w=2000",
+            DetailsUrl = "/news/details/10"
+        }
+    };
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="row">
+        @foreach (var news in newsList)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@news.ImageUrl" class="card-img-top" alt="@news.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">@news.Title</h5>
+                        <p class="card-text">@news.ShortDescription</p>
+                        <a href="@news.DetailsUrl" class="btn btn-primary disabled">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
