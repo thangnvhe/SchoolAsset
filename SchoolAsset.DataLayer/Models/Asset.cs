@@ -16,7 +16,7 @@ namespace SchoolAsset.DataLayer.Models
         public string? Status { get; set; }
         public DateTime? PurchaseDate { get; set; }
         [Precision(18, 2)]
-        public decimal? Price { get; set; }
+        public decimal? PricePerUnit { get; set; }
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }
@@ -24,6 +24,8 @@ namespace SchoolAsset.DataLayer.Models
         [ForeignKey("RoomId")]
         public Room? Room { get; set; }
         public string? ImgUrl { get; set; }
-        IEnumerable<Maintenance>? Maintenances { get; set; }
+        public int Quantity { get; set; }
+        public ICollection<AssetDetail>? AssetDetails { get; set; }
+        public ICollection<Maintenance>? Maintenances { get; set; }
     }
 }

@@ -19,7 +19,8 @@ namespace SchoolAsset.DataLayer.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }
-        
+        public DbSet<AssetDetail> AssetDetails { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -194,6 +195,33 @@ namespace SchoolAsset.DataLayer.Data
                     RoomDate = new DateTime(2025, 3, 17),
                     RoomTypeId = 6,
                     BuildingId = 2
+                }
+                );
+            modelBuilder.Entity<Category>().HasData(
+                new Category
+                {
+                    CategoryId = 1,
+                    CategoryName = "Cơ Sở Vật Chất"
+                },
+                new Category
+                {
+                    CategoryId = 2,
+                    CategoryName = "Thiết Bị Dạng Dạy"
+                },
+                new Category
+                {
+                    CategoryId = 3,
+                    CategoryName = "Dụng Cụ Văn Phòng"
+                },
+                new Category
+                {
+                    CategoryId = 4,
+                    CategoryName = "Thiết Bị Y Tế"
+                },
+                new Category
+                {
+                    CategoryId = 5,
+                    CategoryName = "Thiết Bị Thể Dục"
                 }
                 );
         }

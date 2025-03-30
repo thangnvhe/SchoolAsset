@@ -13,7 +13,7 @@ namespace SchoolAsset.DataLayer.Models
         [MaxLength(100)]
         public string? Status { get; set; }
         public DateTime? Building_Date { get; set; }
-        public IEnumerable<Room>? Rooms { get; set; }
+        public ICollection<Room>? Rooms { get; set; }
 
     }
 }

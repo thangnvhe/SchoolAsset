@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolAsset.DataLayer.Data;
 
@@ -11,9 +12,11 @@ using SchoolAsset.DataLayer.Data;
 namespace SchoolAsset.DataLayer.Migrations
 {
     [DbContext(typeof(SchoolAssetDbContext))]
-    partial class SchoolAssetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250330102557_ChangeLittle")]
+    partial class ChangeLittle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,129 +271,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Assets", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            AssetId = 1,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 1,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 2,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 2,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 3,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 3,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 4,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 4,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 5,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 5,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 6,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 6,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 7,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 7,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 8,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 8,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 9,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 9,
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            AssetId = 10,
-                            AssetName = "Bàn Học",
-                            CategoryId = 1,
-                            Description = "Bàn học cho học sinh",
-                            ImgUrl = "https://www.google.com",
-                            Price = 1000000m,
-                            PurchaseDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomId = 10,
-                            Status = "Active"
-                        });
+                    b.ToTable("Assets");
                 });
 
             modelBuilder.Entity("SchoolAsset.DataLayer.Models.Building", b =>
@@ -418,7 +299,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasKey("BuildingId");
 
-                    b.ToTable("Buildings", (string)null);
+                    b.ToTable("Buildings");
 
                     b.HasData(
                         new
@@ -476,34 +357,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            CategoryName = "Cơ Sở Vật Chất"
-                        },
-                        new
-                        {
-                            CategoryId = 2,
-                            CategoryName = "Thiết Bị Dạng Dạy"
-                        },
-                        new
-                        {
-                            CategoryId = 3,
-                            CategoryName = "Dụng Cụ Văn Phòng"
-                        },
-                        new
-                        {
-                            CategoryId = 4,
-                            CategoryName = "Thiết Bị Y Tế"
-                        },
-                        new
-                        {
-                            CategoryId = 5,
-                            CategoryName = "Thiết Bị Thể Dục"
-                        });
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("SchoolAsset.DataLayer.Models.Maintenance", b =>
@@ -534,7 +388,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("AssetId");
 
-                    b.ToTable("Maintenances", (string)null);
+                    b.ToTable("Maintenances");
                 });
 
             modelBuilder.Entity("SchoolAsset.DataLayer.Models.Room", b =>
@@ -566,7 +420,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("RoomTypeId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
 
                     b.HasData(
                         new
@@ -670,13 +524,11 @@ namespace SchoolAsset.DataLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomTypeId"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoomTypeId");
 
-                    b.ToTable("RoomTypes", (string)null);
+                    b.ToTable("RoomTypes");
 
                     b.HasData(
                         new

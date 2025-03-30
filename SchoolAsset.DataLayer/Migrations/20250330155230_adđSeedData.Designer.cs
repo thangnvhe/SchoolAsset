@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolAsset.DataLayer.Data;
 
@@ -11,9 +12,11 @@ using SchoolAsset.DataLayer.Data;
 namespace SchoolAsset.DataLayer.Migrations
 {
     [DbContext(typeof(SchoolAssetDbContext))]
-    partial class SchoolAssetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250330155230_adđSeedData")]
+    partial class adđSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,7 +271,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Assets", (string)null);
+                    b.ToTable("Assets");
 
                     b.HasData(
                         new
@@ -418,7 +421,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasKey("BuildingId");
 
-                    b.ToTable("Buildings", (string)null);
+                    b.ToTable("Buildings");
 
                     b.HasData(
                         new
@@ -476,7 +479,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -534,7 +537,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("AssetId");
 
-                    b.ToTable("Maintenances", (string)null);
+                    b.ToTable("Maintenances");
                 });
 
             modelBuilder.Entity("SchoolAsset.DataLayer.Models.Room", b =>
@@ -566,7 +569,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasIndex("RoomTypeId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
 
                     b.HasData(
                         new
@@ -676,7 +679,7 @@ namespace SchoolAsset.DataLayer.Migrations
 
                     b.HasKey("RoomTypeId");
 
-                    b.ToTable("RoomTypes", (string)null);
+                    b.ToTable("RoomTypes");
 
                     b.HasData(
                         new
