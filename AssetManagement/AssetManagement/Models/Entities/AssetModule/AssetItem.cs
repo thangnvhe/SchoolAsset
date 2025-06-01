@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using AssetManagement.Models.Entities.UserModule;
 using AssetManagement.Models.Entities.MaintainModule;
 using AssetManagement.Models.Entities.DepreciationModule;
+using AssetManagement.Enums;
 
 namespace AssetManagement.Models.Entities.AssetModule
 {
@@ -12,8 +13,8 @@ namespace AssetManagement.Models.Entities.AssetModule
         public string AssetItemID { get; set; }
         public int InventoryID { get; set; }
         public int LocationID { get; set; }
-        public string Status { get; set; }
-        public int? UpdatedBy { get; set; }
+        public AssetItemStatus Status { get; set; }
+        public string? UpdatedBy { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 

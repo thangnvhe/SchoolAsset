@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using AssetManagement.Models.Entities.AssetModule;
 using AssetManagement.Models.Entities.UserModule;
+using AssetManagement.Enums;
 
 namespace AssetManagement.Models.Entities.MaintainModule
 {
@@ -11,11 +12,11 @@ namespace AssetManagement.Models.Entities.MaintainModule
         public int IssueID { get; set; }
         public int? InventoryID { get; set; }
         public string? AssetItemID { get; set; }
-        public int ReportedBy { get; set; }
+        public string ReportedBy { get; set; }
         [Required]
         public string IssueDescription { get; set; }
         public DateTime ReportDate { get; set; } = DateTime.Now;
-        public string Status { get; set; }
+        public AssetIssueStatus Status { get; set; }
 
         [ForeignKey("InventoryID")]
         public virtual InventoryAsset? InventoryAsset { get; set; }

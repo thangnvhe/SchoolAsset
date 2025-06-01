@@ -18,7 +18,7 @@ namespace AssetManagement.Models.Entities.MaintainModule
         public int MaintenanceQuantity { get; set; }
         public string? Description { get; set; }
         public decimal? Cost { get; set; }
-        public int PerformedBy { get; set; }
+        public string PerformedBy { get; set; }
         public string? CompletionPhoto { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
